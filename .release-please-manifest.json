@@ -1,5 +1,5 @@
 {
-  "plugins/playwright-scaffold": "0.0.0",
-  "plugins/playwright-spec": "0.0.0",
-  "plugins/playwright-debug": "0.0.0"
+  "plugins/playwright-scaffold": "1.0.0",
+  "plugins/playwright-spec": "1.0.0",
+  "plugins/playwright-debug": "1.0.0"
 }
