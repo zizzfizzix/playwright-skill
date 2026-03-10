@@ -1,7 +1,7 @@
 {
-  "name": "playwright-scaffold",
+  "name": "playwright-spec",
   "version": "1.0.0",
-  "description": "Claude Code Skill for scaffolding Playwright in a project: installs @playwright/test, generates playwright.config.ts, and creates CI workflow files for GitHub Actions and GitLab CI.",
+  "description": "Claude Code Skill for writing CI-ready Playwright spec files. Explores the app's routes, auth flow, and components to write persistent *.spec.ts files that match the real application.",
   "author": {
     "name": "zizzfizzix"
   },
@@ -16,11 +16,10 @@
     "claude-skill",
     "claude-code",
     "playwright",
-    "playwright-scaffold",
+    "playwright-spec",
     "e2e",
-    "ci",
-    "setup",
-    "github-actions",
+    "testing",
+    "test-writing",
     "model-invoked"
   ]
 }

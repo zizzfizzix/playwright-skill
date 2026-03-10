@@ -10,15 +10,17 @@
         "source": "git-subdir",
         "url": "https://github.com/zizzfizzix/playwright-skill.git",
         "path": "plugins/playwright-scaffold",
-        "ref": "playwright-scaffold-v0.0.0"
+        "ref": "playwright-scaffold-v1.0.0"
       },
       "description": "Claude Code Skill for scaffolding Playwright in a project: installs @playwright/test, generates playwright.config.ts, and creates CI workflow files for GitHub Actions and GitLab CI.",
-      "version": "0.0.0",
+      "version": "1.0.0",
       "author": {
         "name": "zizzfizzix"
       },
       "contributors": [
-        { "name": "lackeyjb" }
+        {
+          "name": "lackeyjb"
+        }
       ],
       "homepage": "https://github.com/zizzfizzix/playwright-skill",
       "repository": "https://github.com/zizzfizzix/playwright-skill",
@@ -35,7 +37,91 @@
         "model-invoked"
       ],
       "category": "testing",
-      "tags": ["playwright", "e2e", "ci", "setup", "github-actions"]
+      "tags": [
+        "playwright",
+        "e2e",
+        "ci",
+        "setup",
+        "github-actions"
+      ]
+    },
+    {
+      "name": "playwright-spec",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/zizzfizzix/playwright-skill.git",
+        "path": "plugins/playwright-spec",
+        "ref": "playwright-spec-v1.0.0"
+      },
+      "description": "Claude Code Skill for writing CI-ready Playwright spec files. Explores the app's routes, auth flow, and components to write persistent *.spec.ts files that match the real application.",
+      "version": "1.0.0",
+      "author": {
+        "name": "zizzfizzix"
+      },
+      "contributors": [
+        {
+          "name": "lackeyjb"
+        }
+      ],
+      "homepage": "https://github.com/zizzfizzix/playwright-skill",
+      "repository": "https://github.com/zizzfizzix/playwright-skill",
+      "license": "MIT",
+      "keywords": [
+        "claude-skill",
+        "claude-code",
+        "playwright",
+        "playwright-spec",
+        "e2e",
+        "testing",
+        "test-writing",
+        "model-invoked"
+      ],
+      "category": "testing",
+      "tags": [
+        "playwright",
+        "e2e",
+        "testing",
+        "test-writing"
+      ]
+    },
+    {
+      "name": "playwright-debug",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/zizzfizzix/playwright-skill.git",
+        "path": "plugins/playwright-debug",
+        "ref": "playwright-debug-v1.0.0"
+      },
+      "description": "Claude Code Skill for diagnosing and fixing failing Playwright tests. Reads test output and failure artifacts, traces the root cause, and fixes specs to match the actual application behaviour.",
+      "version": "1.0.0",
+      "author": {
+        "name": "zizzfizzix"
+      },
+      "contributors": [
+        {
+          "name": "lackeyjb"
+        }
+      ],
+      "homepage": "https://github.com/zizzfizzix/playwright-skill",
+      "repository": "https://github.com/zizzfizzix/playwright-skill",
+      "license": "MIT",
+      "keywords": [
+        "claude-skill",
+        "claude-code",
+        "playwright",
+        "playwright-debug",
+        "e2e",
+        "debugging",
+        "testing",
+        "model-invoked"
+      ],
+      "category": "testing",
+      "tags": [
+        "playwright",
+        "e2e",
+        "debugging",
+        "testing"
+      ]
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
-  "name": "playwright-scaffold",
+  "name": "playwright-debug",
   "version": "1.0.0",
-  "description": "Claude Code Skill for scaffolding Playwright in a project: installs @playwright/test, generates playwright.config.ts, and creates CI workflow files for GitHub Actions and GitLab CI.",
+  "description": "Claude Code Skill for diagnosing and fixing failing Playwright tests. Reads test output and failure artifacts, traces the root cause, and fixes specs to match the actual application behaviour.",
   "author": {
     "name": "zizzfizzix"
   },
@@ -16,11 +16,10 @@
     "claude-skill",
     "claude-code",
     "playwright",
-    "playwright-scaffold",
+    "playwright-debug",
     "e2e",
-    "ci",
-    "setup",
-    "github-actions",
+    "debugging",
+    "testing",
     "model-invoked"
   ]
 }
