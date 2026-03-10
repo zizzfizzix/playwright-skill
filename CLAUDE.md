@@ -47,7 +47,8 @@ When commits are merged to `main`, Release Please opens a release PR that bumps 
      "tag-component": "new-plugin",
      "changelog-path": "CHANGELOG.md",
      "extra-files": [
-       { "type": "json", "path": ".claude-plugin/plugin.json", "jsonpath": "$.version" }
+       { "type": "json", "path": ".claude-plugin/plugin.json", "jsonpath": "$.version" },
+       { "type": "json", "path": "/.claude-plugin/marketplace.json", "jsonpath": "$.plugins[?(@.name=='new-plugin')].version" }
      ]
    }
    ```
