@@ -5,16 +5,16 @@
       "release-type": "simple",
       "component": "playwright-scaffold",
       "tag-component": "playwright-scaffold",
-      "changelog-path": "plugins/playwright-scaffold/CHANGELOG.md",
+      "changelog-path": "CHANGELOG.md",
       "extra-files": [
         {
           "type": "json",
-          "path": "plugins/playwright-scaffold/.claude-plugin/plugin.json",
+          "path": ".claude-plugin/plugin.json",
           "jsonpath": "$.version"
         },
         {
           "type": "json",
-          "path": ".claude-plugin/marketplace.json",
+          "path": "/.claude-plugin/marketplace.json",
           "jsonpath": "$.plugins[?(@.name=='playwright-scaffold')].version"
         }
       ]
@@ -23,16 +23,16 @@
       "release-type": "simple",
       "component": "playwright-spec",
       "tag-component": "playwright-spec",
-      "changelog-path": "plugins/playwright-spec/CHANGELOG.md",
+      "changelog-path": "CHANGELOG.md",
       "extra-files": [
         {
           "type": "json",
-          "path": "plugins/playwright-spec/.claude-plugin/plugin.json",
+          "path": ".claude-plugin/plugin.json",
           "jsonpath": "$.version"
         },
         {
           "type": "json",
-          "path": ".claude-plugin/marketplace.json",
+          "path": "/.claude-plugin/marketplace.json",
           "jsonpath": "$.plugins[?(@.name=='playwright-spec')].version"
         }
       ]
@@ -41,16 +41,16 @@
       "release-type": "simple",
       "component": "playwright-debug",
       "tag-component": "playwright-debug",
-      "changelog-path": "plugins/playwright-debug/CHANGELOG.md",
+      "changelog-path": "CHANGELOG.md",
       "extra-files": [
         {
           "type": "json",
-          "path": "plugins/playwright-debug/.claude-plugin/plugin.json",
+          "path": ".claude-plugin/plugin.json",
           "jsonpath": "$.version"
         },
         {
           "type": "json",
-          "path": ".claude-plugin/marketplace.json",
+          "path": "/.claude-plugin/marketplace.json",
           "jsonpath": "$.plugins[?(@.name=='playwright-debug')].version"
         }
       ]

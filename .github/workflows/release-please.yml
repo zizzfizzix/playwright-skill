@@ -39,10 +39,17 @@ jobs:
             const pluginName = path.split('/').pop();
             const tag = `${pluginName}-v${version}`;
             const plugin = marketplace.plugins.find(p => p.name === pluginName);
-            if (plugin && plugin.source && typeof plugin.source === 'object' && plugin.source.ref !== tag) {
-              plugin.source.ref = tag;
-              updated = true;
-              console.log(`Pinned ${pluginName} source.ref → ${tag}`);
+            if (plugin) {
+              if (plugin.version !== version) {
+                plugin.version = version;
+                updated = true;
+                console.log(`Updated ${pluginName} version → ${version}`);
+              }
+              if (plugin.source && typeof plugin.source === 'object' && plugin.source.ref !== tag) {
+                plugin.source.ref = tag;
+                updated = true;
+                console.log(`Pinned ${pluginName} source.ref → ${tag}`);
+              }
             }
           }
 

@@ -37,6 +37,7 @@ When commits are merged to `main`, Release Please opens a release PR that bumps 
    ```
    plugins/new-plugin/.claude-plugin/plugin.json
    plugins/new-plugin/skills/new-plugin/SKILL.md
+   plugins/new-plugin/version.txt          ← required by simple release type; content: 0.0.0
    ```
 2. Add a package block to `release-please-config.json`:
    ```json
@@ -44,10 +45,10 @@ When commits are merged to `main`, Release Please opens a release PR that bumps 
      "release-type": "simple",
      "component": "new-plugin",
      "tag-component": "new-plugin",
-     "changelog-path": "plugins/new-plugin/CHANGELOG.md",
+     "changelog-path": "CHANGELOG.md",
      "extra-files": [
-       { "type": "json", "path": "plugins/new-plugin/.claude-plugin/plugin.json", "jsonpath": "$.version" },
-       { "type": "json", "path": ".claude-plugin/marketplace.json", "jsonpath": "$.plugins[?(@.name=='new-plugin')].version" }
+       { "type": "json", "path": ".claude-plugin/plugin.json", "jsonpath": "$.version" },
+       { "type": "json", "path": "/.claude-plugin/marketplace.json", "jsonpath": "$.plugins[?(@.name=='new-plugin')].version" }
      ]
    }
    ```
