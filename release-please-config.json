@@ -1,21 +1,21 @@
 {
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
   "packages": {
-    "plugins/playwright-test": {
+    "plugins/playwright-scaffold": {
       "release-type": "simple",
-      "component": "playwright-test",
-      "tag-component": "playwright-test",
-      "changelog-path": "plugins/playwright-test/CHANGELOG.md",
+      "component": "playwright-scaffold",
+      "tag-component": "playwright-scaffold",
+      "changelog-path": "plugins/playwright-scaffold/CHANGELOG.md",
       "extra-files": [
         {
           "type": "json",
-          "path": "plugins/playwright-test/.claude-plugin/plugin.json",
+          "path": "plugins/playwright-scaffold/.claude-plugin/plugin.json",
           "jsonpath": "$.version"
         },
         {
           "type": "json",
           "path": ".claude-plugin/marketplace.json",
-          "jsonpath": "$.plugins[?(@.name=='playwright-test')].version"
+          "jsonpath": "$.plugins[?(@.name=='playwright-scaffold')].version"
         }
       ]
     }

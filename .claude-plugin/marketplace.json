@@ -1,18 +1,18 @@
 {
-  "name": "playwright-test",
+  "name": "playwright-skill",
   "owner": {
     "name": "zizzfizzix"
   },
   "plugins": [
     {
-      "name": "playwright-test",
+      "name": "playwright-scaffold",
       "source": {
         "source": "git-subdir",
         "url": "https://github.com/zizzfizzix/playwright-skill.git",
-        "path": "plugins/playwright-test",
-        "ref": "playwright-test-v0.0.0"
+        "path": "plugins/playwright-scaffold",
+        "ref": "playwright-scaffold-v0.0.0"
       },
-      "description": "Claude Code Skill for writing CI-ready E2E test suites with @playwright/test. Explores project structure, writes persistent spec files and playwright.config.ts, and generates CI workflow configs for GitHub Actions and GitLab CI.",
+      "description": "Claude Code Skill for scaffolding Playwright in a project: installs @playwright/test, generates playwright.config.ts, and creates CI workflow files for GitHub Actions and GitLab CI.",
       "version": "0.0.0",
       "author": {
         "name": "zizzfizzix"
@@ -27,15 +27,15 @@
         "claude-skill",
         "claude-code",
         "playwright",
-        "playwright-test",
+        "playwright-scaffold",
         "e2e",
         "ci",
-        "testing",
+        "setup",
         "github-actions",
         "model-invoked"
       ],
       "category": "testing",
-      "tags": ["playwright", "e2e", "ci", "testing", "github-actions"]
+      "tags": ["playwright", "e2e", "ci", "setup", "github-actions"]
     }
   ]
 }
