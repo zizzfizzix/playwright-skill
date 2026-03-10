@@ -13,6 +13,19 @@
           "jsonpath": "$.version"
         }
       ]
+    },
+    "plugins/playwright-spec": {
+      "release-type": "simple",
+      "component": "playwright-spec",
+      "tag-component": "playwright-spec",
+      "changelog-path": "CHANGELOG.md",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": ".claude-plugin/plugin.json",
+          "jsonpath": "$.version"
+        }
+      ]
     }
   }
 }

@@ -36,6 +36,38 @@
       ],
       "category": "testing",
       "tags": ["playwright", "e2e", "ci", "setup", "github-actions"]
+    },
+    {
+      "name": "playwright-spec",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/zizzfizzix/playwright-skill.git",
+        "path": "plugins/playwright-spec",
+        "ref": "playwright-spec-v0.0.0"
+      },
+      "description": "Claude Code Skill for writing CI-ready Playwright spec files. Explores the app's routes, auth flow, and components to write persistent *.spec.ts files that match the real application.",
+      "version": "0.0.0",
+      "author": {
+        "name": "zizzfizzix"
+      },
+      "contributors": [
+        { "name": "lackeyjb" }
+      ],
+      "homepage": "https://github.com/zizzfizzix/playwright-skill",
+      "repository": "https://github.com/zizzfizzix/playwright-skill",
+      "license": "MIT",
+      "keywords": [
+        "claude-skill",
+        "claude-code",
+        "playwright",
+        "playwright-spec",
+        "e2e",
+        "testing",
+        "test-writing",
+        "model-invoked"
+      ],
+      "category": "testing",
+      "tags": ["playwright", "e2e", "testing", "test-writing"]
     }
   ]
 }
