@@ -11,11 +11,6 @@
           "type": "json",
           "path": "plugins/playwright-scaffold/.claude-plugin/plugin.json",
           "jsonpath": "$.version"
-        },
-        {
-          "type": "json",
-          "path": ".claude-plugin/marketplace.json",
-          "jsonpath": "$.plugins[?(@.name=='playwright-scaffold')].version"
         }
       ]
     }
