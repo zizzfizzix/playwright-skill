@@ -1,3 +1,4 @@
 {
-  "plugins/playwright-scaffold": "0.0.0"
+  "plugins/playwright-scaffold": "0.0.0",
+  "plugins/playwright-spec": "0.0.0"
 }

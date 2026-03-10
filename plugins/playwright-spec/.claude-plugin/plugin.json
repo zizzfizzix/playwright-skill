@@ -1,0 +1,23 @@
+{
+  "name": "playwright-spec",
+  "version": "0.0.0",
+  "description": "Claude Code Skill for writing CI-ready Playwright spec files. Explores the app's routes, auth flow, and components to write persistent *.spec.ts files that match the real application.",
+  "author": {
+    "name": "zizzfizzix"
+  },
+  "contributors": [
+    { "name": "lackeyjb" }
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/zizzfizzix/playwright-skill",
+  "keywords": [
+    "claude-skill",
+    "claude-code",
+    "playwright",
+    "playwright-spec",
+    "e2e",
+    "testing",
+    "test-writing",
+    "model-invoked"
+  ]
+}
