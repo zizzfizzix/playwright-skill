@@ -24,7 +24,7 @@ Enhancement suggestions are welcome! Please:
 
 1. **Fork the repository**
    ```bash
-   git clone https://github.com/lackeyjb/playwright-skill.git
+   git clone https://github.com/zizzfizzix/playwright-skill.git
    cd playwright-skill
    ```
 
@@ -40,8 +40,9 @@ Enhancement suggestions are welcome! Please:
 
 4. **Test your changes**
    ```bash
-   npm run setup
-   # Test your changes with Claude Code
+   # Load the skill locally and test in Claude Code
+   claude --plugin-dir ./
+   # Then: "Write E2E tests for <some project>"
    ```
 
 5. **Commit your changes**
@@ -63,20 +64,22 @@ Enhancement suggestions are welcome! Please:
 
 ## Development Guidelines
 
-### Code Style
+### Content Guidelines
 
-- Use clear, descriptive variable names
-- Add comments for complex logic
-- Keep functions focused on a single responsibility
-- Follow existing patterns in the codebase
+The skill is two markdown files — contributions are primarily documentation changes.
+
+- Match the tone and conciseness of the existing content
+- Prefer short, direct sentences over long explanations
+- New code examples must use the locator API (`getByRole`, `getByLabel`, `getByTestId`); avoid CSS class/ID selectors
+- Keep all TypeScript examples valid — check types compile before submitting
 
 ### SKILL.md Guidelines
 
+- Keep SKILL.md under 500 lines — move reference material to API_REFERENCE.md
 - Keep examples concise (8-15 lines)
-- Always show `headless: false` by default
-- Include error handling in examples
-- Add console.log statements for visibility
-- Reference README.md for advanced topics
+- `headless: true` is always the default — tests must run in CI without a display
+- Do not add `console.log` to test examples — it clutters CI output and is a code smell
+- Reference API_REFERENCE.md for advanced patterns (API mocking, POM, form submission)
 
 ### Commit Messages
 
@@ -91,7 +94,7 @@ Use conventional commits format:
 Examples:
 ```
 feat: add mobile device emulation helper
-fix: resolve module resolution issue in run.js
+fix: correct webServer command for Vite projects in CI
 docs: update installation instructions
 ```
 
@@ -99,32 +102,23 @@ docs: update installation instructions
 
 ```
 playwright-skill/
-├── SKILL.md           # Keep concise (~300 lines)
-├── README.md          # Full API reference
-├── PLUGIN_README.md   # Plugin distribution docs
-├── run.js             # Universal executor
-├── package.json       # Dependencies
-├── plugin.json        # Plugin metadata
-└── lib/
-    └── helpers.js     # Utility functions
+├── .claude-plugin/
+│   ├── plugin.json          # Plugin metadata (name, version, author)
+│   └── marketplace.json     # Marketplace distribution config
+├── skills/playwright-test/
+│   ├── SKILL.md             # Skill instructions — keep under 500 lines
+│   └── API_REFERENCE.md     # Full @playwright/test API reference
+├── README.md
+├── CONTRIBUTING.md
+└── LICENSE
 ```
-
-### Adding New Helpers
-
-When adding functions to `lib/helpers.js`:
-1. Add clear JSDoc comments
-2. Include error handling
-3. Export the function
-4. Update SKILL.md to mention it
-5. Add example usage
 
 ### Testing
 
 Before submitting:
-1. Test with a fresh installation
-2. Verify examples in SKILL.md work
-3. Check that `run.js` handles edge cases
-4. Ensure browser opens in visible mode by default
+1. Load locally with `claude --plugin-dir ./` and test against a real project
+2. Verify SKILL.md examples produce working tests
+3. Check the skill triggers correctly in Claude Code — auto via description, and manually via `/playwright-test`
 
 ## Questions?
 

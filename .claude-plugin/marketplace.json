@@ -1,38 +1,41 @@
 {
   "name": "playwright-skill",
   "owner": {
-    "name": "lackeyjb",
-    "email": "github@lackeyjb"
-  },
-  "metadata": {
-    "description": "Playwright browser automation skill for Claude Code",
-    "version": "1.0.0"
+    "name": "zizzfizzix"
   },
   "plugins": [
     {
-      "name": "playwright-skill",
-      "source": "./",
-      "description": "Claude Code Skill for general-purpose browser automation with Playwright. Claude autonomously writes and executes custom automation for testing pages, validating UX, and any browser task.",
-      "version": "4.1.0",
-      "author": {
-        "name": "lackeyjb"
+      "name": "playwright-scaffold",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/zizzfizzix/playwright-skill.git",
+        "path": "plugins/playwright-scaffold",
+        "ref": "playwright-scaffold-v0.0.0"
       },
-      "homepage": "https://github.com/lackeyjb/playwright-skill",
-      "repository": "https://github.com/lackeyjb/playwright-skill",
+      "description": "Claude Code Skill for scaffolding Playwright in a project: installs @playwright/test, generates playwright.config.ts, and creates CI workflow files for GitHub Actions and GitLab CI.",
+      "version": "0.0.0",
+      "author": {
+        "name": "zizzfizzix"
+      },
+      "contributors": [
+        { "name": "lackeyjb" }
+      ],
+      "homepage": "https://github.com/zizzfizzix/playwright-skill",
+      "repository": "https://github.com/zizzfizzix/playwright-skill",
       "license": "MIT",
       "keywords": [
         "claude-skill",
         "claude-code",
         "playwright",
-        "browser-automation",
-        "testing",
+        "playwright-scaffold",
         "e2e",
-        "web-testing",
-        "automation",
+        "ci",
+        "setup",
+        "github-actions",
         "model-invoked"
       ],
       "category": "testing",
-      "tags": ["browser", "automation", "playwright", "testing", "e2e"]
+      "tags": ["playwright", "e2e", "ci", "setup", "github-actions"]
     }
   ]
 }

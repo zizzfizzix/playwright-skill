@@ -1,0 +1,65 @@
+name: Release Please
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          command: manifest
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+      - uses: actions/checkout@v4
+        if: ${{ steps.release.outputs.releases_created }}
+        with:
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+
+      - name: Pin marketplace source refs to release tags
+        if: ${{ steps.release.outputs.releases_created }}
+        run: |
+          node - <<'EOF'
+          const fs = require('fs');
+          const manifest = JSON.parse(fs.readFileSync('.release-please-manifest.json', 'utf8'));
+          const marketplace = JSON.parse(fs.readFileSync('.claude-plugin/marketplace.json', 'utf8'));
+
+          let updated = false;
+          for (const [path, version] of Object.entries(manifest)) {
+            const pluginName = path.split('/').pop();
+            const tag = `${pluginName}-v${version}`;
+            const plugin = marketplace.plugins.find(p => p.name === pluginName);
+            if (plugin && plugin.source && typeof plugin.source === 'object' && plugin.source.ref !== tag) {
+              plugin.source.ref = tag;
+              updated = true;
+              console.log(`Pinned ${pluginName} source.ref → ${tag}`);
+            }
+          }
+
+          if (updated) {
+            fs.writeFileSync('.claude-plugin/marketplace.json', JSON.stringify(marketplace, null, 2) + '\n');
+          }
+          EOF
+
+      - name: Commit marketplace pin
+        if: ${{ steps.release.outputs.releases_created }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet .claude-plugin/marketplace.json; then
+            echo "source.ref already up to date"
+          else
+            git add .claude-plugin/marketplace.json
+            git commit -m "chore: pin marketplace source refs to release tags"
+            git push
+          fi
