@@ -18,6 +18,24 @@
           "jsonpath": "$.plugins[?(@.name=='playwright-scaffold')].version"
         }
       ]
+    },
+    "plugins/playwright-spec": {
+      "release-type": "simple",
+      "component": "playwright-spec",
+      "tag-component": "playwright-spec",
+      "changelog-path": "plugins/playwright-spec/CHANGELOG.md",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "plugins/playwright-spec/.claude-plugin/plugin.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "json",
+          "path": ".claude-plugin/marketplace.json",
+          "jsonpath": "$.plugins[?(@.name=='playwright-spec')].version"
+        }
+      ]
     }
   }
 }
