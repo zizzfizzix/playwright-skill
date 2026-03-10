@@ -10,10 +10,10 @@
         "source": "git-subdir",
         "url": "https://github.com/zizzfizzix/playwright-skill.git",
         "path": "plugins/playwright-test",
-        "ref": "playwright-test-v1.0.0"
+        "ref": "playwright-test-v0.0.0"
       },
       "description": "Claude Code Skill for writing CI-ready E2E test suites with @playwright/test. Explores project structure, writes persistent spec files and playwright.config.ts, and generates CI workflow configs for GitHub Actions and GitLab CI.",
-      "version": "1.0.0",
+      "version": "0.0.0",
       "author": {
         "name": "zizzfizzix"
       },
