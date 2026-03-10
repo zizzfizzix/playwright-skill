@@ -5,19 +5,7 @@
       "release-type": "simple",
       "component": "playwright-scaffold",
       "tag-component": "playwright-scaffold",
-      "changelog-path": "plugins/playwright-scaffold/CHANGELOG.md",
-      "extra-files": [
-        {
-          "type": "json",
-          "path": "plugins/playwright-scaffold/.claude-plugin/plugin.json",
-          "jsonpath": "$.version"
-        },
-        {
-          "type": "json",
-          "path": ".claude-plugin/marketplace.json",
-          "jsonpath": "$.plugins[?(@.name=='playwright-scaffold')].version"
-        }
-      ]
+      "changelog-path": "plugins/playwright-scaffold/CHANGELOG.md"
     }
   }
 }

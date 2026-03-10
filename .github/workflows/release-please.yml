@@ -26,7 +26,7 @@ jobs:
         with:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
 
-      - name: Pin marketplace source refs to release tags
+      - name: Sync plugin.json and marketplace.json versions
         if: ${{ steps.release.outputs.releases_created }}
         run: |
           node - <<'EOF'
@@ -34,32 +34,47 @@ jobs:
           const manifest = JSON.parse(fs.readFileSync('.release-please-manifest.json', 'utf8'));
           const marketplace = JSON.parse(fs.readFileSync('.claude-plugin/marketplace.json', 'utf8'));
 
-          let updated = false;
-          for (const [path, version] of Object.entries(manifest)) {
-            const pluginName = path.split('/').pop();
+          for (const [pkgPath, version] of Object.entries(manifest)) {
+            const pluginName = pkgPath.split('/').pop();
             const tag = `${pluginName}-v${version}`;
+
+            // Update plugin.json version
+            const pluginJsonPath = `${pkgPath}/.claude-plugin/plugin.json`;
+            if (fs.existsSync(pluginJsonPath)) {
+              const pluginJson = JSON.parse(fs.readFileSync(pluginJsonPath, 'utf8'));
+              if (pluginJson.version !== version) {
+                pluginJson.version = version;
+                fs.writeFileSync(pluginJsonPath, JSON.stringify(pluginJson, null, 2) + '\n');
+                console.log(`Updated ${pluginName} plugin.json version → ${version}`);
+              }
+            }
+
+            // Update marketplace.json version and source.ref
             const plugin = marketplace.plugins.find(p => p.name === pluginName);
-            if (plugin && plugin.source && typeof plugin.source === 'object' && plugin.source.ref !== tag) {
-              plugin.source.ref = tag;
-              updated = true;
-              console.log(`Pinned ${pluginName} source.ref → ${tag}`);
+            if (plugin) {
+              if (plugin.version !== version) {
+                plugin.version = version;
+                console.log(`Updated ${pluginName} marketplace version → ${version}`);
+              }
+              if (plugin.source && typeof plugin.source === 'object' && plugin.source.ref !== tag) {
+                plugin.source.ref = tag;
+                console.log(`Pinned ${pluginName} source.ref → ${tag}`);
+              }
             }
           }
 
-          if (updated) {
-            fs.writeFileSync('.claude-plugin/marketplace.json', JSON.stringify(marketplace, null, 2) + '\n');
-          }
+          fs.writeFileSync('.claude-plugin/marketplace.json', JSON.stringify(marketplace, null, 2) + '\n');
           EOF
 
-      - name: Commit marketplace pin
+      - name: Commit version sync
         if: ${{ steps.release.outputs.releases_created }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet .claude-plugin/marketplace.json; then
-            echo "source.ref already up to date"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "all versions already up to date"
           else
-            git add .claude-plugin/marketplace.json
-            git commit -m "chore: pin marketplace source refs to release tags"
+            git commit -m "chore: sync plugin.json and marketplace.json versions to release tags"
             git push
           fi
