@@ -68,6 +68,38 @@
       ],
       "category": "testing",
       "tags": ["playwright", "e2e", "testing", "test-writing"]
+    },
+    {
+      "name": "playwright-debug",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/zizzfizzix/playwright-skill.git",
+        "path": "plugins/playwright-debug",
+        "ref": "playwright-debug-v0.0.0"
+      },
+      "description": "Claude Code Skill for diagnosing and fixing failing Playwright tests. Reads test output and failure artifacts, traces the root cause, and fixes specs to match the actual application behaviour.",
+      "version": "0.0.0",
+      "author": {
+        "name": "zizzfizzix"
+      },
+      "contributors": [
+        { "name": "lackeyjb" }
+      ],
+      "homepage": "https://github.com/zizzfizzix/playwright-skill",
+      "repository": "https://github.com/zizzfizzix/playwright-skill",
+      "license": "MIT",
+      "keywords": [
+        "claude-skill",
+        "claude-code",
+        "playwright",
+        "playwright-debug",
+        "e2e",
+        "debugging",
+        "testing",
+        "model-invoked"
+      ],
+      "category": "testing",
+      "tags": ["playwright", "e2e", "debugging", "testing"]
     }
   ]
 }

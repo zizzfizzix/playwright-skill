@@ -36,6 +36,24 @@
           "jsonpath": "$.plugins[?(@.name=='playwright-spec')].version"
         }
       ]
+    },
+    "plugins/playwright-debug": {
+      "release-type": "simple",
+      "component": "playwright-debug",
+      "tag-component": "playwright-debug",
+      "changelog-path": "CHANGELOG.md",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": ".claude-plugin/plugin.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "json",
+          "path": "/.claude-plugin/marketplace.json",
+          "jsonpath": "$.plugins[?(@.name=='playwright-debug')].version"
+        }
+      ]
     }
   }
 }
